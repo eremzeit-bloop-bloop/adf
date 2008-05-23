@@ -1,903 +1,420 @@
 <!-- taken from http://adf.dealerapex.com/forums/ShowPost.aspx?PostID=28 -->
-
-<?xml version="1.0" encoding="UTF-8"?>
-
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
-<xsd:element name="adf">
-
-<xsd:complexType>
-
-<xsd:sequence>
-
-<xsd:element maxOccurs="unbounded" minOccurs="1" ref="prospect" />
-
-</xsd:sequence>
-
-</xsd:complexType>
-
-</xsd:element>
-
-<xsd:element name="prospect">
-
-<xsd:complexType>
-
-<xsd:sequence>
-
-<xsd:element maxOccurs="unbounded" minOccurs="0" ref="id" />
-
-<xsd:element ref="requestdate" />
-
-<xsd:element maxOccurs="unbounded" minOccurs="1" ref="vehicle" />
-
-<xsd:element ref="customer" />
-
-<xsd:element ref="vendor" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="provider" />
-
-</xsd:sequence>
-
-<xsd:attribute default="new" name="status">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="new" />
-
-<xsd:enumeration value="resend" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-</xsd:complexType>
-
-</xsd:element>
-
-<xsd:element name="requestdate" type="xsd:string" />
-
-<xsd:element name="vehicle">
-
-<xsd:complexType>
-
-<xsd:sequence>
-
-<xsd:element maxOccurs="unbounded" minOccurs="0" ref="id" />
-
-<xsd:element ref="year" />
-
-<xsd:element ref="make" />
-
-<xsd:element ref="model" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="vin" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="stock" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="trim" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="doors" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="bodystyle" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="transmission" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="odometer" />
-
-<xsd:element maxOccurs="unbounded" minOccurs="0" ref="colorcombination" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="imagetag" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="price" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="pricecomments" />
-
-<xsd:element maxOccurs="unbounded" minOccurs="0" ref="option" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="finance" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="comments" />
-
-</xsd:sequence>
-
-<xsd:attribute default="buy" name="interest">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="buy" />
-
-<xsd:enumeration value="lease" />
-
-<xsd:enumeration value="sell" />
-
-<xsd:enumeration value="trade-in" />
-
-<xsd:enumeration value="test-drive" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-<xsd:attribute default="new" name="status">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="new" />
-
-<xsd:enumeration value="used" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-</xsd:complexType>
-
-</xsd:element>
-
-<xsd:element name="year" type="xsd:string" />
-
-<xsd:element name="make" type="xsd:string" />
-
-<xsd:element name="model" type="xsd:string" />
-
-<xsd:element name="vin" type="xsd:string" />
-
-<xsd:element name="trim" type="xsd:string" />
-
-<xsd:element name="doors" type="xsd:string" />
-
-<xsd:element name="bodystyle" type="xsd:string" />
-
-<xsd:element name="transmission" type="xsd:string" />
-
-<xsd:element name="odometer">
-
-<xsd:complexType>
-
-<xsd:simpleContent>
-
-<xsd:extension base="xsd:string">
-
-<xsd:attribute name="status" use="optional">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="unknown" />
-
-<xsd:enumeration value="rolledover" />
-
-<xsd:enumeration value="replaced" />
-
-<xsd:enumeration value="original" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-<xsd:attribute name="units" use="optional">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="km" />
-
-<xsd:enumeration value="mi" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-</xsd:extension>
-
-</xsd:simpleContent>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="condition" type="xsd:string" />
-
- 
-
-<xsd:element name="colorcombination">
-
-<xsd:complexType>
-
-<xsd:sequence>
-
-<xsd:choice>
-
-<xsd:element ref="interiorcolor" />
-
-<xsd:element ref="exteriorcolor" />
-
-</xsd:choice>
-
-<xsd:element ref="preference" />
-
-</xsd:sequence>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="imagetag">
-
-<xsd:complexType>
-
-<xsd:simpleContent>
-
-<xsd:extension base="xsd:string">
-
-<xsd:attribute name="width" type="xsd:string" use="optional" />
-
-<xsd:attribute name="height" type="xsd:string" use="optional" />
-
-<xsd:attribute name="alttext" type="xsd:string" use="optional" />
-
-</xsd:extension>
-
-</xsd:simpleContent>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="pricecomments" type="xsd:string" />
-
- 
-
-<xsd:element name="option">
-
-<xsd:complexType>
-
-<xsd:sequence>
-
-<xsd:element ref="optionname" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="manufacturercode" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="stock" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="weighting" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="price" />
-
-</xsd:sequence>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="finance">
-
-<xsd:complexType>
-
-<xsd:sequence>
-
-<xsd:element ref="method" />
-
-<xsd:element maxOccurs="unbounded" minOccurs="1" ref="amount" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="balance" />
-
-</xsd:sequence>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="interiorcolor" type="xsd:string" />
-
-<xsd:element name="exteriorcolor" type="xsd:string" />
-
-<xsd:element name="preference" type="xsd:string" />
-
-<xsd:element name="optionname" type="xsd:string" />
-
-<xsd:element name="manufacturercode" type="xsd:string" />
-
-<xsd:element name="weighting" type="xsd:string" />
-
-<xsd:element name="method" type="xsd:string" />
-
- 
-
-<xsd:element name="amount">
-
-<xsd:complexType>
-
-<xsd:simpleContent>
-
-<xsd:extension base="xsd:string">
-
-<xsd:attribute default="total" name="type">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="downpayment" />
-
-<xsd:enumeration value="monthly" />
-
-<xsd:enumeration value="total" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-<xsd:attribute default="maximum" name="limit">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="maximum" />
-
-<xsd:enumeration value="minimum" />
-
-<xsd:enumeration value="exact" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-<xsd:attribute name="currency" type="xsd:string" use="optional" />
-
-</xsd:extension>
-
-</xsd:simpleContent>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="balance">
-
-<xsd:complexType>
-
-<xsd:simpleContent>
-
-<xsd:extension base="xsd:string">
-
-<xsd:attribute default="finance" name="type">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="finance" />
-
-<xsd:enumeration value="residual" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-<xsd:attribute name="currency" type="xsd:string" use="optional" />
-
-</xsd:extension>
-
-</xsd:simpleContent>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="customer">
-
-<xsd:complexType>
-
-<xsd:sequence>
-
-<xsd:element ref="contact" />
-
-<xsd:element maxOccurs="unbounded" minOccurs="0" ref="id" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="timeframe" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="comments" />
-
-</xsd:sequence>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="timeframe" type="xsd:string" />
-
-<xsd:element name="description" type="xsd:string" />
-
-<xsd:element name="earliestdate" type="xsd:string" />
-
-<xsd:element name="latestdate" type="xsd:string" />
-
- 
-
-<xsd:element name="vendor">
-
-<xsd:complexType>
-
-<xsd:sequence>
-
-<xsd:element maxOccurs="unbounded" minOccurs="0" ref="id" />
-
-<xsd:element ref="vendorname" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="url" />
-
-<xsd:element ref="contact" />
-
-</xsd:sequence>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="vendorname" type="xsd:string" />
-
-<xsd:element name="provider">
-
-<xsd:complexType>
-
-<xsd:sequence>
-
-<xsd:element maxOccurs="unbounded" minOccurs="0" ref="id" />
-
-<xsd:element ref="name" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="service" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="url" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="email" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="phone" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="contact" />
-
-</xsd:sequence>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="service" type="xsd:string" />
-
- 
-
-<xsd:element name="contact">
-
-<xsd:complexType>
-
-<xsd:sequence>
-
-<!
-
-<xsd:element maxOccurs="unbounded" minOccurs="1" ref="name" />
-
-<xsd:element ref="email" />
-
-<xsd:element maxOccurs="unbounded" minOccurs="1" ref="phone" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="address" />
-
-</xsd:sequence>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="name">
-
-<xsd:complexType>
-
-<xsd:simpleContent>
-
-<xsd:extension base="xsd:string">
-
-<xsd:attribute default="full" name="part">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="surname" />
-
-<xsd:enumeration value="first" />
-
-<xsd:enumeration value="middle" />
-
-<xsd:enumeration value="last" />
-
-<xsd:enumeration value="full" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
- 
-
-<xsd:attribute default="individual" name="type">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="business" />
-
-<xsd:enumeration value="individual" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-</xsd:extension>
-
-</xsd:simpleContent>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="email">
-
-<xsd:complexType>
-
-<xsd:simpleContent>
-
-<xsd:extension base="xsd:string">
-
-<xsd:attribute default="0" name="preferredcontact">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="0" />
-
-<xsd:enumeration value="1" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-</xsd:extension>
-
-</xsd:simpleContent>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="phone">
-
-<xsd:complexType>
-
-<xsd:simpleContent>
-
-<xsd:extension base="xsd:string">
-
-<xsd:attribute default="voice" name="type">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="voice" />
-
-<xsd:enumeration value="fax" />
-
-<xsd:enumeration value="cellphone" />
-
-<xsd:enumeration value="pager" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
- 
-
-<xsd:attribute default="nopreference" name="time">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="morning" />
-
-<xsd:enumeration value="afternoon" />
-
-<xsd:enumeration value="evening" />
-
-<xsd:enumeration value="nopreference" />
-
-<xsd:enumeration value="day" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
- 
-
-<xsd:attribute default="0" name="preferredcontact">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="0" />
-
-<xsd:enumeration value="1" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-</xsd:extension>
-
-</xsd:simpleContent>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="address">
-
-<xsd:complexType>
-
-<xsd:sequence>
-
-<xsd:element maxOccurs="unbounded" minOccurs="1" ref="street" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="apartment" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="city" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="regioncode" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="postalcode" />
-
-<xsd:element maxOccurs="1" minOccurs="0" ref="country" />
-
-</xsd:sequence>
-
-<xsd:attribute name="type" use="optional">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="work" />
-
-<xsd:enumeration value="home" />
-
-<xsd:enumeration value="delivery" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="street">
-
-<xsd:complexType>
-
-<xsd:simpleContent>
-
-<xsd:extension base="xsd:string">
-
-<xsd:attribute name="line" type="xsd:string" use="optional" />
-
-</xsd:extension>
-
-</xsd:simpleContent>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="apartment" type="xsd:string" />
-
-<xsd:element name="city" type="xsd:string" />
-
-<xsd:element name="regioncode" type="xsd:string" />
-
-<xsd:element name="postalcode" type="xsd:string" />
-
-<xsd:element name="country" type="xsd:string" />
-
- 
-
-<xsd:element name="price">
-
-<xsd:complexType>
-
-<xsd:simpleContent>
-
-<xsd:extension base="xsd:string">
-
-<xsd:attribute default="quote" name="type">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="quote" />
-
-<xsd:enumeration value="offer" />
-
-<xsd:enumeration value="msrp" />
-
-<xsd:enumeration value="invoice" />
-
-<xsd:enumeration value="call" />
-
-<xsd:enumeration value="appraisal" />
-
-<xsd:enumeration value="asking" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
- 
-
-<xsd:attribute name="currency" type="xsd:string" use="optional" />
-
- 
-
-<xsd:attribute name="delta" use="optional">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="absolute" />
-
-<xsd:enumeration value="relative" />
-
-<xsd:enumeration value="percentage" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
- 
-
-<xsd:attribute name="relativeto" use="optional">
-
-<xsd:simpleType>
-
-<xsd:restriction base="xsd:string">
-
-<xsd:enumeration value="msrp" />
-
-<xsd:enumeration value="invoice" />
-
-</xsd:restriction>
-
-</xsd:simpleType>
-
-</xsd:attribute>
-
-<xsd:attribute name="source" type="xsd:string" use="optional" />
-
-</xsd:extension>
-
-</xsd:simpleContent>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="id">
-
-<xsd:complexType>
-
-<xsd:simpleContent>
-
-<xsd:extension base="xsd:string">
-
-<xsd:attribute name="sequence" type="xsd:string" use="optional" />
-
-<xsd:attribute name="source" type="xsd:string" use="optional" />
-
-</xsd:extension>
-
-</xsd:simpleContent>
-
-</xsd:complexType>
-
-</xsd:element>
-
- 
-
-<xsd:element name="comments" type="xsd:string" />
-
-<xsd:element name="stock" type="xsd:string" />
-
-<xsd:element name="url" type="xsd:string" />
-
+	<xsd:element name="adf">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" ref="prospect" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="prospect">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="id" />
+				<xsd:element ref="requestdate" />
+				<xsd:element maxOccurs="unbounded" minOccurs="1" ref="vehicle" />
+				<xsd:element ref="customer" />
+				<xsd:element ref="vendor" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="provider" />
+			</xsd:sequence>
+			<xsd:attribute default="new" name="status">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="new" />
+						<xsd:enumeration value="resend" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="requestdate" type="xsd:string" />
+	<xsd:element name="vehicle">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="id" />
+				<xsd:element ref="year" />
+				<xsd:element ref="make" />
+				<xsd:element ref="model" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="vin" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="stock" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="trim" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="doors" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="bodystyle" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="transmission" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="odometer" />
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="colorcombination" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="imagetag" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="price" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="pricecomments" />
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="option" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="finance" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="comments" />
+			</xsd:sequence>
+			<xsd:attribute default="buy" name="interest">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="buy" />
+						<xsd:enumeration value="lease" />
+						<xsd:enumeration value="sell" />
+						<xsd:enumeration value="trade-in" />
+						<xsd:enumeration value="test-drive" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute default="new" name="status">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="new" />
+						<xsd:enumeration value="used" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="year" type="xsd:string" />
+	<xsd:element name="make" type="xsd:string" />
+	<xsd:element name="model" type="xsd:string" />
+	<xsd:element name="vin" type="xsd:string" />
+	<xsd:element name="trim" type="xsd:string" />
+	<xsd:element name="doors" type="xsd:string" />
+	<xsd:element name="bodystyle" type="xsd:string" />
+	<xsd:element name="transmission" type="xsd:string" />
+	<xsd:element name="odometer">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute name="status" use="optional">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="unknown" />
+								<xsd:enumeration value="rolledover" />
+								<xsd:enumeration value="replaced" />
+								<xsd:enumeration value="original" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="units" use="optional">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="km" />
+								<xsd:enumeration value="mi" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="condition" type="xsd:string" />
+	<xsd:element name="colorcombination">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:choice>
+					<xsd:element ref="interiorcolor" />
+					<xsd:element ref="exteriorcolor" />
+				</xsd:choice>
+				<xsd:element ref="preference" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="imagetag">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute name="width" type="xsd:string" use="optional" />
+					<xsd:attribute name="height" type="xsd:string" use="optional" />
+					<xsd:attribute name="alttext" type="xsd:string" use="optional" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="pricecomments" type="xsd:string" />
+	<xsd:element name="option">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="optionname" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="manufacturercode" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="stock" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="weighting" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="price" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="finance">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="method" />
+				<xsd:element maxOccurs="unbounded" minOccurs="1" ref="amount" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="balance" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="interiorcolor" type="xsd:string" />
+	<xsd:element name="exteriorcolor" type="xsd:string" />
+	<xsd:element name="preference" type="xsd:string" />
+	<xsd:element name="optionname" type="xsd:string" />
+	<xsd:element name="manufacturercode" type="xsd:string" />
+	<xsd:element name="weighting" type="xsd:string" />
+	<xsd:element name="method" type="xsd:string" />
+	<xsd:element name="amount">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute default="total" name="type">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="downpayment" />
+								<xsd:enumeration value="monthly" />
+								<xsd:enumeration value="total" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute default="maximum" name="limit">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="maximum" />
+								<xsd:enumeration value="minimum" />
+								<xsd:enumeration value="exact" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="currency" type="xsd:string" use="optional" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="balance">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute default="finance" name="type">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="finance" />
+								<xsd:enumeration value="residual" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="currency" type="xsd:string" use="optional" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="customer">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="contact" />
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="id" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="timeframe" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="comments" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="timeframe" type="xsd:string" />
+	<xsd:element name="description" type="xsd:string" />
+	<xsd:element name="earliestdate" type="xsd:string" />
+	<xsd:element name="latestdate" type="xsd:string" />
+	<xsd:element name="vendor">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="id" />
+				<xsd:element ref="contact" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="vendorname" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="url" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="vendorname" type="xsd:string" />
+	<xsd:element name="provider">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="id" />
+				<xsd:element ref="name" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="service" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="url" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="email" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="phone" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="contact" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="service" type="xsd:string" />
+	<xsd:element name="contact">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" ref="name" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="email" />
+				<xsd:element maxOccurs="unbounded" minOccurs="1" ref="phone" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="address" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="name">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute default="full" name="part">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="surname" />
+								<xsd:enumeration value="first" />
+								<xsd:enumeration value="middle" />
+								<xsd:enumeration value="last" />
+								<xsd:enumeration value="full" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute default="individual" name="type">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="business" />
+								<xsd:enumeration value="individual" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="email">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute default="0" name="preferredcontact">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="0" />
+								<xsd:enumeration value="1" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="phone">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute default="voice" name="type">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="voice" />
+								<xsd:enumeration value="fax" />
+								<xsd:enumeration value="cellphone" />
+								<xsd:enumeration value="pager" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute default="nopreference" name="time">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="morning" />
+								<xsd:enumeration value="afternoon" />
+								<xsd:enumeration value="evening" />
+								<xsd:enumeration value="nopreference" />
+								<xsd:enumeration value="day" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute default="0" name="preferredcontact">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="0" />
+								<xsd:enumeration value="1" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="address">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" minOccurs="1" ref="street" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="apartment" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="city" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="regioncode" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="postalcode" />
+				<xsd:element maxOccurs="1" minOccurs="0" ref="country" />
+			</xsd:sequence>
+			<xsd:attribute name="type" use="optional">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="work" />
+						<xsd:enumeration value="home" />
+						<xsd:enumeration value="delivery" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="street">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute name="line" type="xsd:string" use="optional" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="apartment" type="xsd:string" />
+	<xsd:element name="city" type="xsd:string" />
+	<xsd:element name="regioncode" type="xsd:string" />
+	<xsd:element name="postalcode" type="xsd:string" />
+	<xsd:element name="country" type="xsd:string" />
+	<xsd:element name="price">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute default="quote" name="type">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="quote" />
+								<xsd:enumeration value="offer" />
+								<xsd:enumeration value="msrp" />
+								<xsd:enumeration value="invoice" />
+								<xsd:enumeration value="call" />
+								<xsd:enumeration value="appraisal" />
+								<xsd:enumeration value="asking" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="currency" type="xsd:string" use="optional" />
+					<xsd:attribute name="delta" use="optional">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="absolute" />
+								<xsd:enumeration value="relative" />
+								<xsd:enumeration value="percentage" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="relativeto" use="optional">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="msrp" />
+								<xsd:enumeration value="invoice" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="source" type="xsd:string" use="optional" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="id">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute name="sequence" type="xsd:string" use="optional" />
+					<xsd:attribute name="source" type="xsd:string" use="optional" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="comments" type="xsd:string" />
+	<xsd:element name="stock" type="xsd:string" />
+	<xsd:element name="url" type="xsd:string" />
 </xsd:schema>
