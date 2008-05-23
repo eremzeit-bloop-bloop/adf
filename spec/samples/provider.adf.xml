@@ -19,5 +19,26 @@
                    <name part="full">Acura of Bellevue</name>
              </contact>
        </vendor>
+	<provider>
+	      <name part="full">CarPoint</name>
+	      <service>Used Car Classifieds</service>
+	      <url>http://carpoint.msn.com</url>
+	      <email>carcomm@carpoint.com</email>
+	      <phone>425-555-1212</phone>
+	      <contact primarycontact="1">
+		    <name part="full">Fred Jones</name>
+		    <email>support@carpoint.com</email>
+		    <phone type="voice" time="day">425-253-2222</phone>
+		    <phone type="fax" time="day">393-991-2999</phone>
+		    <address>
+			   <street line="1">One Microsoft Way</street>
+			   <street line="2">Building 8</street>
+			   <city>Redmond</city>
+			   <regioncode>WA</regioncode>
+			   <postalcode>98052</postalcode>
+			   <country>US</country>
+		    </address>
+	      </contact>
+	</provider>
     </prospect>
 </adf>
