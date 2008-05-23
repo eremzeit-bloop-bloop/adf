@@ -24,6 +24,16 @@ class DateTime
   end
 end
 
+# little module for including in our models (unless_activerecord)
+module NonActiveRecordModel
+  def self.included base
+    base.module_eval { include Validatable }
+  end
+  def initialize options = {}
+    options.each { |k,v| instance_variable_set "@#{k}", v }
+  end
+end
+
 # ADF is a utility class and the namespace for all of the model classes
 class ADF
 

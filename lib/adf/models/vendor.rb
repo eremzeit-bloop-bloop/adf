@@ -1,12 +1,8 @@
 class ADF::Vendor
+
   unless_activerecord do
-    include Validatable
-
+    include NonActiveRecordModel
     attr_accessor :contact
-
-    def initialize options = {}
-      options.each { |k,v| instance_variable_set "@#{k}", v }
-    end
   end
 
   def to_adf prospect
