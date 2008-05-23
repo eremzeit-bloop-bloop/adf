@@ -53,7 +53,7 @@
 <!ELEMENT earliestdate (#PCDATA)>
 <!ELEMENT latestdate (#PCDATA)>
 <!-- Vendor -->
-<!ELEMENT vendor (id*, vendorname, url?, contact)>
+<!ELEMENT vendor (id*, vendorname?, url?, contact)>
 <!ELEMENT vendorname (#PCDATA)>
 <!-- Provider -->
 <!ELEMENT provider (id*, name, service?, url?, email?, phone?,

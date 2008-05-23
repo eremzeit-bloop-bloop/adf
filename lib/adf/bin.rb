@@ -22,6 +22,25 @@ class ADF::Bin
 doco
   end 
 
+  ### helper methods
+  def resource file
+    File.expand_path( File.dirname(__FILE__) + "/../../resources/#{ file }" )
+  end
+  def validate_dtd options
+    file, dtd = options[:file], options[:dtd]
+
+    file_content = File.read file
+    output = `xmllint --dtdvalid '#{ dtd }' '#{ file }' 2>&1`.sub file_content, ''
+
+    dtd = File.basename dtd
+    if output.empty?
+      system %{echo -e "\e[32mVALID OK\e[37m [#{dtd}]\n"}
+    else
+      system %{echo -e "\e[31mFAILED\e[37m [#{dtd}]\n\n#{output}"}
+    end
+  end
+  ### --------------
+
   def validate_help
     <<doco
 Usage: #{ script_name } validate adf-sample.xml
@@ -53,12 +72,12 @@ doco
       exit
     end
     unless options[:dtd] or options[:altdtd] or options[:xsd] or options[:objects]
-      puts 'Validation type not selected, defaulting to --dtd'
+      puts "Validation type not selected, defaulting to --dtd\n\n"
       options[:dtd] = true
     end
 
-    puts `xmllint --dtdvalid '#{ File.dirname(__FILE__) + '/../../resources/ADF-1.0.dtd' }' #{ file }` if options[:dtd]
-    puts `xmllint --dtdvalid '#{ File.dirname(__FILE__) + '/../../resources/ADF-1.0.improved.dtd' }' #{ file }` if options[:altdtd]
+    validate_dtd :dtd => resource('ADF-1.0.dtd'), :file => file if options[:dtd]
+    validate_dtd :dtd => resource('ADF-1.0.improved.dtd'), :file => file if options[:altdtd]
     puts `xmllint --schema '#{ File.dirname(__FILE__)   + '/../../resources/ADF-1.0.xsd' }' #{ file }` if options[:xsd]
     puts '--objects validation not yet supported' if options[:objects]
   end
