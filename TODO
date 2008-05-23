@@ -1,3 +1,4 @@
- * complete basic_parse_spec
+ * complete basic_parse_spec (and make a new directory for parse specs that match sample files)
+ * write a basic_builder_spec or basic_create_spec (and make a dir for creation specs that match sample files)
  * refactor validate_dtd|xsd methods to DTD and XSD object that inherid XmlLint for writing specs
  * create specs for DTD/XSD
