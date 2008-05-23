@@ -6,13 +6,18 @@ require 'hpricot'
 require 'active_support'
 require 'validatable' # for non-AR class validations
 
+# little extension for our model classes so we can do some stuff 
+# _only_ when our classes are NOT activerecord classes
+class Object
+  class << self
+    def unless_activerecord &block
+      block.call unless defined?ActiveRecord and self.superclass == ActiveRecord::Base
+    end
+  end
+end
+
 # ADF is a utility class and the namespace for all of the model classes
 class ADF
-
-  # ADF 'models' and 'object' currently inherit from this ...
-  class Base
-    include Validatable
-  end
 
   # get an ADF::Prospect from an ADF formatted XML string
   def self.parse adf
@@ -21,7 +26,10 @@ class ADF
 
   # loads all ADF objects as ActiveRecord models
   def self.load_models
-    raise "NOT CURRENTLY SUPPORTED ... will get to it when i get to it ..."
+    undefine
+    require 'active_record' unless defined?ActiveRecord
+    model_names.each { |name| eval "class ADF::#{name} < ActiveRecord::Base; end", TOPLEVEL_BINDING }
+    load_objects
   end
 
   # loads all ADF objects as normal classes with AR validations
@@ -34,7 +42,7 @@ class ADF
     model_names.each { |name| ADF.send :remove_const, name.to_sym }
   end
 
-  # private
+  private
 
   def self.model_names
     model_files.map {|file| File.basename(file).sub(/\..*/,'').capitalize }
@@ -46,5 +54,5 @@ class ADF
 
 end
 
-# for auto-loading models (for now ...)
+# for auto-loading models ( by default ... for now ... )
 ADF.load_objects

@@ -1,8 +1,10 @@
-class ADF::Prospect < ADF::Base
-  attr_accessor :requestdate
+class ADF::Prospect
+  unless_activerecord do
+    attr_accessor :requestdate
 
-  def initialize options = {}
-    options.each { |k,v| instance_variable_set "@#{k}", v }
+    def initialize options = {}
+      options.each { |k,v| instance_variable_set "@#{k}", v }
+    end
   end
 
   def self.from_adf adf
