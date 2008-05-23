@@ -1,0 +1,3 @@
+ * refactor validate_dtd|xsd methods to DTD and XSD object that inherid XmlLint for writing specs
+ * create specs for DTD/XSD
+ * ADF.load_models and ADF.load_objects for loading activerecord vs. normal class (with validations) objects
