@@ -57,9 +57,9 @@ doco
       options[:dtd] = true
     end
 
-    puts `xmllint --dtdvalid '#{ File.dirname(__FILE__) + '/../resources/ADF-1.0.dtd' }' #{ file }` if options[:dtd]
-    puts `xmllint --dtdvalid '#{ File.dirname(__FILE__) + '/../resources/ADF-1.0.improved.dtd' }' #{ file }` if options[:altdtd]
-    puts `xmllint --schema '#{ File.dirname(__FILE__)   + '/../resources/ADF-1.0.xsd' }' #{ file }` if options[:xsd]
+    puts `xmllint --dtdvalid '#{ File.dirname(__FILE__) + '/../../resources/ADF-1.0.dtd' }' #{ file }` if options[:dtd]
+    puts `xmllint --dtdvalid '#{ File.dirname(__FILE__) + '/../../resources/ADF-1.0.improved.dtd' }' #{ file }` if options[:altdtd]
+    puts `xmllint --schema '#{ File.dirname(__FILE__)   + '/../../resources/ADF-1.0.xsd' }' #{ file }` if options[:xsd]
     puts '--objects validation not yet supported' if options[:objects]
   end
 

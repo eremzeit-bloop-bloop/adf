@@ -1,9 +1,5 @@
 <!-- taken from http://adf.dealerapex.com/forums/ShowPost.aspx?PostID=28 -->
 
-<?xml version="1.0"?>
-
-<!DOCTYPE adf [
-
 <!ELEMENT adf (prospect)+>
 
 <!ELEMENT prospect ((id)*,requestdate,(vehicle)+,customer,vendor,(provider)?)>
@@ -223,5 +219,3 @@ source CDATA #IMPLIED>
 <!ELEMENT stock (#PCDATA)>
 
 <!ELEMENT url (#PCDATA)>
-
-]>
