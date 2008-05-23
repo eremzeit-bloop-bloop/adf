@@ -2,20 +2,39 @@
 
 ADF is a Ruby library for creating and parsing Auto-lead Data Format (ADF)
 
-ADF is an industry standard data format for the export and import of 
-automotive customer leads using XML
-
-This project has no association with the official ADF format or its makers, 
-it simply makes use of this standard data format.
+The ADF format is an industry standard data format for the export and import 
+of automotive customer leads using XML.
 
 More information about the ADF format can be found at:
-wikipedia:: http://en.wikipedia.org/wiki/Auto-lead_Data_Format
-dealerapex:: http://adf.dealerapex.com
-specification:: http://adf.dealerapex.com/ADFVersion1.pdf
 
-In our documentation and code, ADF may refer to both this library and the ADF format. 
-When it's not clear which we're referring to, we'll use 'ADF format' or 'ADF library' 
-to be clear.
+[wikipedia]      http://en.wikipedia.org/wiki/Auto-lead_Data_Format
+[dealerapex]     http://adf.dealerapex.com
+[specification]  http://adf.dealerapex.com/ADFVersion1.pdf
+
+In our documentation and code, ADF may refer to either this library or the ADF format. 
+When it's not clear which we're referring to, we'll use 'ADF format' or 'ADF library' to be clear.
+
+== Why?
+
+To reduce the overhead of creating and parsing the ADF format so more people can 
+enjoy the use of this standard for lead system integration.
+
+== Why Open Source?
+
+Because dealerships and their lead systems are secretive and it's frustrating as hell.
+
+As a developer who wants to let my clients (dealerships) send leads to their lead systems 
+via ADF, I've been frustrated by the lack of tools and documentation provided by lead 
+systems to help their clients integrate with their lead systems.
+
+Auto lead systems all seem to accept ADF, but none of them that I've found offer any 
+validation/creation/parsing or other tools to help working with ADF.  I've even had 
+lead systems tell me that they wouldn't share their DTD's because they're proprietary.
+
+Ridiculous.
+
+I hope that open sourcing better tools for working with ADF will help dealerships and lead systems
+all work together better and stop acting like industry standard formats are Top Secret!
 
 == License
 

@@ -4,6 +4,9 @@
 
 	'resend' can simply update the requestdate of a lead and not 
 	pass along the rest of the required data
+
+	anyone know XSD/DTD well enough to know if you can handle 
+	this kindof a conditional?
 -->
 <?xml version="1.0"?>
 <?ADF version "1.0"?>
