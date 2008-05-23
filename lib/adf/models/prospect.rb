@@ -1,5 +1,7 @@
 class ADF::Prospect
   unless_activerecord do
+    include Validatable
+
     attr_accessor :requestdate
 
     def initialize options = {}
