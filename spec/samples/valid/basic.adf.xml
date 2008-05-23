@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <?ADF VERSION "1.0"?>
 <adf>
-    <prospect>
-       <requestdate>2000-03-30T15:30:20-08:00</requestdate>
-       <vehicle>
-             <year>1999</year>
-             <make>Chevrolet</make>
-             <model>Blazer</model>
-       </vehicle>
-       <customer>
-             <contact>
-                       <name part="full">John Doe</name>
-                       <phone>393-999-3922</phone>
-                </contact>
-       </customer>
-       <vendor>
-             <contact>
-                   <name part="full">Acura of Bellevue</name>
-             </contact>
-       </vendor>
-    </prospect>
+	<prospect>
+		<requestdate>2000-03-30T15:30:20-08:00</requestdate>
+		<vehicle>
+			<year>1999</year>
+			<make>Chevrolet</make>
+			<model>Blazer</model>
+		</vehicle>
+		<customer>
+			<contact>
+				<name part="full">John Doe</name>
+				<phone>393-999-3922</phone>
+			</contact>
+		</customer>
+		<vendor>
+			<contact>
+				<name part="full">Acura of Bellevue</name>
+			</contact>
+		</vendor>
+	</prospect>
 </adf>

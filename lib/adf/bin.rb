@@ -39,6 +39,19 @@ doco
       system %{echo -e "\e[31mFAILED\e[37m [#{dtd}]\n\n#{output}"}
     end
   end
+  def validate_xsd options
+    file, xsd = options[:file], options[:xsd]
+
+    file_content = File.read file
+    output = `xmllint --schema '#{ xsd }' '#{ file }' 2>&1`.sub file_content, ''
+
+    xsd = File.basename xsd
+    if output.include?"#{ File.basename(file) } validates"
+      system %{echo -e "\e[32mVALID OK\e[37m [#{xsd}]\n"}
+    else
+      system %{echo -e "\e[31mFAILED\e[37m [#{xsd}]\n\n#{output}"}
+    end
+  end
   ### --------------
 
   def validate_help
@@ -78,7 +91,7 @@ doco
 
     validate_dtd :dtd => resource('ADF-1.0.dtd'), :file => file if options[:dtd]
     validate_dtd :dtd => resource('ADF-1.0.improved.dtd'), :file => file if options[:altdtd]
-    puts `xmllint --schema '#{ File.dirname(__FILE__)   + '/../../resources/ADF-1.0.xsd' }' #{ file }` if options[:xsd]
+    validate_xsd :xsd => resource('ADF-1.0.xsd'), :file => file if options[:xsd]
     puts '--objects validation not yet supported' if options[:objects]
   end
 

@@ -244,7 +244,7 @@
 			<xsd:sequence>
 				<xsd:element maxOccurs="unbounded" minOccurs="1" ref="name" />
 				<xsd:element maxOccurs="1" minOccurs="0" ref="email" />
-				<xsd:element maxOccurs="unbounded" minOccurs="1" ref="phone" />
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="phone" />
 				<xsd:element maxOccurs="1" minOccurs="0" ref="address" />
 			</xsd:sequence>
 		</xsd:complexType>
