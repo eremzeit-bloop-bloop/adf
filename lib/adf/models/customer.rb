@@ -1,5 +1,4 @@
 class ADF::Customer
-
   unless_activerecord do
     include NonActiveRecordModel
     attr_accessor :contact

@@ -1,9 +1,10 @@
 class ADF::Contact
-
   unless_activerecord do
     include NonActiveRecordModel
     attr_accessor :name, :phone
   end
+
+  validates_presence_of :name
 
   def to_adf node
     node.contact do |contact|

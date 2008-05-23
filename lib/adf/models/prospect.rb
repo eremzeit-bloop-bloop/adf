@@ -1,5 +1,4 @@
 class ADF::Prospect
-
   unless_activerecord do
     include NonActiveRecordModel
     attr_accessor :requestdate, :vehicle, :customer, :vendor

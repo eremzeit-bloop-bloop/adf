@@ -1,5 +1,4 @@
 class ADF::Vehicle
-
   unless_activerecord do
     include NonActiveRecordModel
     attr_accessor :year, :make, :model
