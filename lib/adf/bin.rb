@@ -14,9 +14,6 @@ class ADF::Bin
       adf -v/--version   [Not Implemented Yet]
       adf command [options]
 
-    Examples:
-      adf highlight my-file.rb
-
     Further help:
       adf commands         # list all available commands
       adf help <COMMAND>   # show help for COMMAND
