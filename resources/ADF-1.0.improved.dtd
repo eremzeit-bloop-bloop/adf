@@ -122,7 +122,7 @@ currency CDATA #IMPLIED>
 
 <!-- Vendor -->
 
-<!ELEMENT vendor ((id)*,vendorname,(url)?,contact)>
+<!ELEMENT vendor ((id)*,vendorname?,(url)?,contact)>
 
 <!ELEMENT vendorname (#PCDATA)>
 
