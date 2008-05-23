@@ -1,0 +1,41 @@
+<?ADF VERSION "1.0"?>
+<?XML VERSION "1.0"?>
+<adf>
+    <prospect>
+       <requestdate>2000-03-30T15:30:20-08:00</requestdate>
+       <vehicle>
+             <year>1999</year>
+             <make>Chevrolet</make>
+             <model>Blazer</model>
+       </vehicle>
+	<customer>
+		 <contact>
+			 <name   part="first">John</name>
+			 <name part="last">Doe</name>
+			 <email>jdoe@hotmail.com</email>
+			 <phone type="voice" time="morning">393-999-3922</phone>
+			 <phone type="voice" time="evening" besttime="1">393-991-2999
+			 </phone>
+			   <phone type="fax" time="evening">393-991-2999</phone>
+			 <address type="home">
+				 <street line="1">10 first avenue</street>
+				 <apartment>G-17</apartment>
+				 <city>Spokane</city>
+				 <regioncode>WA</regioncode>
+				 <postalcode>98002-3903</postalcode>
+				 <country>US</country>
+			 </address>
+		 </contact>
+		 <timeframe>
+		      <description>Within 1 month</description>
+		 </timeframe>
+		 <comments>Can you deliver my new car by next Thursday?
+		 </comments>
+	</customer>
+       <vendor>
+             <contact>
+                   <name part="full">Acura of Bellevue</name>
+             </contact>
+       </vendor>
+    </prospect>
+</adf>

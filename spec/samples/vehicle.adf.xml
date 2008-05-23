@@ -1,0 +1,59 @@
+<?ADF VERSION "1.0"?>
+<?XML VERSION "1.0"?>
+<adf>
+     <prospect>
+	<requestdate>2000-03-30T15:30:20-08:00</requestdate>
+	<vehicle interest="buy" status="used">
+		 <year>1999</year>
+		 <make>Chevrolet</make>
+		 <model>Blazer</model>
+		 <vin>2GTEK19R7V1511644</vin>
+		 <stock>P7286</stock>
+		 <trim>LT</trim>
+		 <doors>4</doors>
+		 <bodystyle>SUV</bodystyle>
+		 <transmission>A</transmission>
+		 <odometer status="replaced" units="miles">90000</odometer>
+		 <colorcombination>
+			 <interiorcolor>lush brown</interiorcolor>
+			 <exteriorcolor>emerald green</exteriorcolor>
+			 <preference>2</preference>
+		 </colorcombination>
+		 <colorcombination>
+			 <interiorcolor>gray</interiorcolor>
+			 <exteriorcolor>cobalt blue</exteriorcolor>
+			 <preference>1</preference>
+		 </colorcombination>
+		 <price type="quote" currency="USD">26995</price>
+		 <option>
+			 <optionname>Sport</name>
+			 <manufacturercode>p394</manufacturercode>
+			 <weighting>65</weighting>
+		 </option>
+		<option>
+			<optionname>Keyless Entry</name>
+			<manufacturercode>p395</manufacturercode>
+			<weighting>100</weighting>
+		</option>
+		<finance>
+			<method>Finance</method>
+		    <amount type="downpayment" currency="USD">5000</amount>
+			<amount type="monthly" currency="USD">1000</amount>
+			<amount type="total" currency="USD">50000</amount>
+			<balance type="residual" currency="USD">2000</balance>
+		</finance>
+		<comments>keyless entry essential</comments>
+	</vehicle>
+	<customer>
+             <contact>
+                       <name part="full">John Doe</name>
+                       <phone>393-999-3922</phone>
+                </contact>
+	</customer>
+	<vendor>
+             <contact>
+                   <name part="full">Acura of Bellevue</name>
+             </contact>
+	</vendor>
+    </prospect>
+</adf>
