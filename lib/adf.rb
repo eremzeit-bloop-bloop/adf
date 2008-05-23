@@ -3,6 +3,7 @@ $:.unshift File.dirname(__FILE__)
 require 'date'
 require 'rubygems'
 require 'hpricot'
+require 'builder'
 require 'active_support'
 require 'validatable' # for non-AR class validations
 
@@ -13,6 +14,13 @@ class Object
     def unless_activerecord &block
       block.call unless defined?ActiveRecord and self.superclass == ActiveRecord::Base
     end
+  end
+end
+
+# little extension to DateTime to have a method that returns the time in ISO 8601 format
+class DateTime
+  def iso_8601
+    self.strftime("%Y-%m-%dT%H:%M:%S") << self.strftime("%z").gsub(/(\d{2})(\d{2})/, '\1:\2')
   end
 end
 
