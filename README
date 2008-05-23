@@ -14,6 +14,8 @@ More information about the ADF format can be found at:
 In our documentation and code, ADF may refer to either this library or the ADF format. 
 When it's not clear which we're referring to, we'll use 'ADF format' or 'ADF library' to be clear.
 
+The bug tracker for this project can be found at http://remitaylor.lighthouseapp.com/projects/11762-adf
+
 == Why?
 
 To reduce the overhead of creating and parsing the ADF format so more people can 
