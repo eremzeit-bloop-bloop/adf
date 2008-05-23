@@ -1,8 +1,15 @@
+<!--
+	this sample required application/object validation logic because
+	it's valid, but only because the prospect status == 'resend'
+
+	'resend' can simply update the requestdate of a lead and not 
+	pass along the rest of the required data
+-->
+<?xml version="1.0"?>
 <?ADF version "1.0"?>
-<?XML VERSION "1.0"?>
 <adf>
-     <prospect status="resend">
-         <id sequence=1 source="Cobalt">38889</id>
-         <requestdate>2000-03-30T15:30:20-08:00</requestdate>
-     </prospect>
+	<prospect status="resend">
+		<id sequence="1" source="Cobalt">38889</id>
+		<requestdate>2000-03-30T15:30:20-08:00</requestdate>
+	</prospect>
 </adf>
