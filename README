@@ -1,0 +1,23 @@
+== ADF
+
+ADF is a Ruby library for creating and parsing Auto-lead Data Format (ADF)
+
+ADF is an industry standard data format for the export and import of 
+automotive customer leads using XML
+
+More information about the ADF format can be found at:
+wikipedia:: http://en.wikipedia.org/wiki/Auto-lead_Data_Format
+dealerapex:: http://adf.dealerapex.com
+specification:: http://adf.dealerapex.com/ADFVersion1.pdf
+
+In our documentation and code, ADF may refer to both this library and the ADF format. 
+When it's not clear which we're referring to, we'll use 'ADF format' or 'ADF library' 
+to be clear.
+
+== License
+
+ADF is released under the terms of the GNU Affero General Public License (AGPL[link:files/COPYING_rdoc.html])
+
+( This means that this code may not be used in any published proprietary software, including websites. 
+You may ONLY use this code in GPL-compatible open source applications. 
+We hope to release this code under a more permissive license in the future. )
