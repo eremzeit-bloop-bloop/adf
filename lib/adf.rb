@@ -2,9 +2,11 @@ $:.unshift File.dirname(__FILE__)
 
 require 'date'
 require 'rubygems'
+require 'hpricot'
 require 'active_support'
 require 'validatable' # for non-AR class validations
 
+# ADF is a utility class and the namespace for all of the model classes
 class ADF
 
   # ADF 'models' and 'object' currently inherit from this ...
@@ -12,9 +14,9 @@ class ADF
     include Validatable
   end
 
-  # get an ADF::Lead from an ADF formatted XML string
+  # get an ADF::Prospect from an ADF formatted XML string
   def self.parse adf
-    ADF::Lead.new 
+    ADF::Prospect.from_adf adf
   end
 
   # loads all ADF objects as ActiveRecord models
