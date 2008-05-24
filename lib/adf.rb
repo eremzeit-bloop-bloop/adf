@@ -11,6 +11,9 @@ require 'validatable' # for non-AR class validations
 # _only_ when our classes are NOT activerecord classes
 class Object
   class << self
+    def if_activerecord &block
+      block.call if defined?ActiveRecord and self.superclass == ActiveRecord::Base
+    end
     def unless_activerecord &block
       block.call unless defined?ActiveRecord and self.superclass == ActiveRecord::Base
     end
