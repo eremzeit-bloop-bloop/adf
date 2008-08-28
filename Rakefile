@@ -11,6 +11,11 @@ task :docs do |t|
   puts 'done.'
 end
 
+desc 'run unit tests and specs'
+task :test => :spec do
+  # ...
+end
+
 desc 'run specs'
 task :spec do
   exec 'spec spec/*'
