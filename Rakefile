@@ -11,6 +11,11 @@ task :docs do |t|
   puts 'done.'
 end
 
+desc 'run specs'
+task :spec do
+  exec 'spec spec/*'
+end
+
 namespace :doc do
   desc "Generate documentation for the application. Set custom template with TEMPLATE=/path/to/rdoc/template.rb"
   Rake::RDocTask.new("create") do |rdoc|
