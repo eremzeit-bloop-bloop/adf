@@ -10,11 +10,6 @@ require File.dirname(__FILE__) + '/spec_helper'
       @result = ADF.parse( @result.to_adf ) if method == :build
     end
 
-    # this is a test, testing my continuous integration system ...
-    it 'should fail' do
-      1.should == 2
-    end
-
     it 'should be a prospect' do
       @result.should be_a_kind_of(ADF::Prospect)
     end
